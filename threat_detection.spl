@@ -1,0 +1,3 @@
+index=aws_logs
+| stats count by eventName, userName, sourceIPAddress
+| sort - count
