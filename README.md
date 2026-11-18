@@ -25,13 +25,13 @@ Behavioral analysis of API activity from each source clearly distinguished legit
 | **New Jersey** | Low volume; self-service actions (`GetUser`, `ListAccessKeys`, `ListAttachedUserPolicies`, `GetAccountPasswordPolicy`) | Legitimate user activity |
 | **California** | High volume automated enumeration (40+ `DescribeInstances`, 55 `GetBucketAcl`, 33 `DescribeVolumes`) plus destructive actions (`TerminateInstances`, security group modifications) | **Malicious — compromised credential use** |
 
-![Full AWS CloudTrail event breakdown by eventName](images/01-eventname-breakdown.png)
+![Full AWS CloudTrail event breakdown by eventName](01-eventname-breakdown.png)
 *Initial exploration query showing the full range of AWS API activity logged in the dataset.*
 
-![California session activity breakdown](images/03-california-activity.png)
+![California session activity breakdown](03-california-activity.png)
 *High-volume automated enumeration from the California source IP — 40+ DescribeInstances, 55 GetBucketAcl calls, plus destructive actions.*
 
-![New Jersey session activity breakdown](images/04-newjersey-activity.png)
+![New Jersey session activity breakdown](04-newjersey-activity.png)
 *Low-volume, self-service activity from the New Jersey source IP — consistent with legitimate account usage.*
 
 ### Key Findings
@@ -46,12 +46,12 @@ Behavioral analysis of API activity from each source clearly distinguished legit
    - `i-0920036c8ca91e501`
    - `i-0cc93bade2b3cba63`
 
-   ![TerminateInstances event details showing three terminated instance IDs](images/05-terminated-instances.png)
+   ![TerminateInstances event details showing three terminated instance IDs](05-terminated-instances.png)
    *Confirmed EC2 instance termination — three instances destroyed by the compromised account.*
 
 5. **No confirmed data exfiltration** — a search for `GetObject` events returned zero results across the entire dataset, indicating S3 buckets were probed for permissions/metadata but no object-level (file) access was logged.
 
-   ![Empty GetObject search results across entire dataset](images/06-no-exfiltration.png)
+   ![Empty GetObject search results across entire dataset](06-no-exfiltration.png)
    *No GetObject events found for any user in the dataset, confirming no object-level S3 access was logged during the incident.*
 
 ---
@@ -113,4 +113,4 @@ index=botsv3 sourcetype=aws:cloudtrail eventName=GetObject
 ---
 
 ## Author
-**Haritha G** — Cybersecurity Graduate.
+**Akash Reddy Gaddam** — Cybersecurity Graduate.
