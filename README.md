@@ -36,7 +36,7 @@ Behavioral analysis of API activity from each source clearly distinguished legit
 
 ### Key Findings
 1. **Valid Accounts abuse** — attacker logged in using `bstoll`'s legitimate credentials, with no prior failed attempts, suggesting credentials were compromised elsewhere (e.g. phishing, credential leak) rather than brute-forced.
-   ![ConsoleLogin events showing bstoll logging in from two different source IPs](images/02-console-logins.png)
+   ![ConsoleLogin events showing bstoll logging in from two different source IPs](02-console-logins.png)
    *Four ConsoleLogin events for user bstoll — first login from New Jersey, followed by three logins from California hours later.*
 
 2. **Cloud infrastructure & storage discovery** — extensive `Describe*` and `GetBucketAcl`/`ListBuckets` calls indicate systematic reconnaissance of EC2 instances, volumes, security groups, and S3 buckets.
