@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🛡️ SIEM Threat Detection & Incident Investigation
+# 🛡️ Splunk BOTS v3 Incident Investigation
 
 ### AWS Cloud Attack Investigation | Splunk | BOTS v3
 
